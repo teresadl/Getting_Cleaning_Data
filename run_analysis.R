@@ -45,6 +45,6 @@ run_analysis <- function() {
         names(Test_Train_df) <- gsub('Gyro', 'Gyroscope', names(Test_Train_df))
         
         # Create a second, independent tidy dataset with the avg of each var for each activity
-        tidy_avg_df <- dply(Test_Train_df, c('subject', 'activity'), numcolwise(mean))
+        tidy_avg_df <- ddply(Test_Train_df, c('subject', 'activity'), numcolwise(mean))
         write.table(tidy_avg_df, file = 'tidy_df.txt')
 }
